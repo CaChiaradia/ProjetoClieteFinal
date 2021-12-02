@@ -13,9 +13,10 @@ const url = "mongodb+srv://carolina:aluna1234@projetombafinal.9hao4.mongodb.net/
 mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology:true})
 
 
+
 app.post("/api/cliente/add", auth,(req,res)=>{
 
-    conn.query("insert into tbcliente set?", req.body,(error, result, fields)=>{
+    conn.query("insert into tabela_banco set?", req.body,(error, result, fields)=>{
         if(error){
             return res.status(400).send({output: `Não foi possivel cadastrar -> ${error}`})
         }
@@ -26,7 +27,7 @@ app.post("/api/cliente/add", auth,(req,res)=>{
 
 app.put("/api/cliente/update/:id",auth,(req,res)=>{
 
-    conn.query("update tbcliente set? where idcliente=?",[req.body,req.params.id], (error,result)=>{
+    conn.query("update tabela_banco set? where idcliente=?",[req.body,req.params.id], (error,result)=>{
         if(error){
             return res.status(400)({output: `Não foi possivel atualizar -> ${error}`})
         }
